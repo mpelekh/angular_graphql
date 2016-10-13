@@ -1,5 +1,6 @@
-module.exports = initializeRoutes;
+import entry from './entry';
 
-function initializeRoutes(app) {
-    app.use('/', require('./entry'));
+export default function (app) {
+    app.use('/', entry);
 }
+
