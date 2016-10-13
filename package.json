@@ -1,0 +1,23 @@
+{
+  "name": "angular_graphql",
+  "version": "0.0.1",
+  "description": "App with Angular and GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickpeleh/angular_graphql.git"
+  },
+  "keywords": [
+    "angular",
+    "graphql"
+  ],
+  "author": "Nick Peleh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickpeleh/angular_graphql/issues"
+  },
+  "homepage": "https://github.com/nickpeleh/angular_graphql#readme"
+}
