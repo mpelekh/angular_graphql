@@ -5,7 +5,7 @@ const
 
 module.exports = {
     entry: {
-        app: [path.join(__dirname, 'src/client', 'app/app.js')]
+        app: ['babel-polyfill', path.join(__dirname, 'src/client', 'app/app.js')]
     },
 
     output: {
