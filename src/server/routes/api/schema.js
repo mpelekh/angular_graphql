@@ -8,19 +8,19 @@ import {
 
 // In memory data store
 const TodoStore = [
-    "Learn some GraphQL",
-    "Build a sample app"
+    'First todo item',
+    'Second todo item',
+    'Third todo item'
 ];
 
 // Root level queries
-const TodosQuery = new GraphQLObjectType({
-    name: "TodosQuery",
+const TodoesQuery = new GraphQLObjectType({
+    name  : 'TodoesQuery',
     fields: () => ({
         items: {
-            type: new GraphQLList(GraphQLString),
-            description: "List of todo items",
+            type       : new GraphQLList(GraphQLString),
+            description: 'List of todo items',
             resolve() {
-                // close and send
                 return TodoStore.concat([]);
             }
         }
@@ -28,22 +28,22 @@ const TodosQuery = new GraphQLObjectType({
 });
 
 // Mutations
-const TodosMutations = new GraphQLObjectType({
-    name: 'TodosMutations',
+const TodoesMutations = new GraphQLObjectType({
+    name  : 'TodoesMutations',
     fields: () => ({
         addItem: {
-            type: GraphQLString,
-            description: "Add a new todo item",
-            args: {
+            type       : GraphQLString,
+            description: 'Add a new todo item',
+            args       : {
                 item: {
                     type: new GraphQLNonNull(GraphQLString)
                 }
             },
             resolve(parent, {item}) {
-                if(TodoStore.length >= 10) {
-                    // Remove the third time by keeping the first two
-                    TodoStore.splice(2, 1);
-                }
+                //if (TodoStore.length >= 10) {
+                //    // Remove the third time by keeping the first two
+                //    TodoStore.splice(2, 1);
+                //}
 
                 TodoStore.push(item);
                 return item;
@@ -53,10 +53,10 @@ const TodosMutations = new GraphQLObjectType({
 });
 
 // Schema
-const TodosSchema = new GraphQLSchema({
-    name: "TodosSchema",
-    query: TodosQuery,
-    mutation: TodosMutations
+const TodoesSchema = new GraphQLSchema({
+    name    : 'TodoesSchema',
+    query   : TodoesQuery,
+    mutation: TodoesMutations
 });
 
-export default TodosSchema;
+export default TodoesSchema;
