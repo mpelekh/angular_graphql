@@ -1,15 +1,20 @@
 class MainController {
-    constructor(MainService) {
+    constructor($scope, MainService) {
         'ngInject';
 
+        this._$scope = $scope;
         this._MainService = MainService;
+
+        this.todoesItems = [];
     }
 
     async $onInit(){
         const self = this;
         const response = await self._MainService.getTodoesList('{items}');
 
-        console.log('--- response', response);
+        self.todoesItems = response.data.items;
+
+        self._$scope.$apply();
     }
 }
 
