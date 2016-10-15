@@ -7,7 +7,7 @@ import {
 } from 'graphql';
 
 // In memory data store
-const TodoStore = [
+let TodoesStore = [
     'First todo item',
     'Second todo item',
     'Third todo item'
@@ -21,7 +21,7 @@ const TodoesQuery = new GraphQLObjectType({
             type       : new GraphQLList(GraphQLString),
             description: 'List of todo items',
             resolve() {
-                return TodoStore.concat([]);
+                return TodoesStore.concat();
             }
         }
     })
@@ -40,12 +40,7 @@ const TodoesMutations = new GraphQLObjectType({
                 }
             },
             resolve(parent, {item}) {
-                //if (TodoStore.length >= 10) {
-                //    // Remove the third time by keeping the first two
-                //    TodoStore.splice(2, 1);
-                //}
-
-                TodoStore.push(item);
+                TodoesStore = TodoesStore.concat(item);
                 return item;
             }
         }
