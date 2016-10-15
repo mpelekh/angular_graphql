@@ -7,6 +7,7 @@ class TodoesListController {
         if(changes.todoesItems){
             const todoesItems = changes.todoesItems.currentValue;
             self.todoesItems = {...todoesItems};
+            self.newTodoItem = '';
         }
     }
 }
